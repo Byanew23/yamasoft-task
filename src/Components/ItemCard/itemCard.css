@@ -53,3 +53,15 @@
     color: rgb(32, 32, 104);
     font-size: 1.2rem
 }
+
+.more-info {
+    margin-top: 0.5rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.2rem;
+    background: rgb(223, 223, 151);
+
+}
+.more-info:hover {
+    background: rgb(160, 160, 109);
+}

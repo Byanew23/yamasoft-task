@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ItemCard, Cards } from "../ItemCard";
+import { Modal } from "../Modal";
 import { useGetData } from "../../hooks";
 import "./landingPage.css";
 
@@ -8,6 +9,7 @@ export const LandingPage = () => {
   const [currentData, setCurrentData] = useState<Cards>({ trips: [] });
   const [isFetching, setIsFetching] = useState<boolean>(true);
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const [openModal, setOpenModal] = useState<boolean>(false);
 
   useEffect(() => {
     if (!loading) {
@@ -28,12 +30,21 @@ export const LandingPage = () => {
     setCurrentData(temp);
   }, [searchTerm]);
 
+  useEffect(() => {
+    if (openModal) {
+      const page = document.getElementsByTagName("html")[0];
+      page.style.overflow = "hidden";
+    }
+  }, [openModal]);
+
   return (
     <>
+      <Modal open={openModal} />
       <div className="top-bar">
         <div className="search-comp">
-          <span className="glass">&#x1F50E;</span>
+          <span className="glass">⌕</span>
           <input
+            name="search"
             className="search-box"
             onChange={(e) => setSearchTerm(e.target.value)}></input>
         </div>
@@ -43,7 +54,13 @@ export const LandingPage = () => {
           <div>Loading...</div>
         ) : (
           currentData.trips.map((card) => {
-            return <ItemCard key={card.id} card={card} />;
+            return (
+              <ItemCard
+                key={card.id}
+                card={card}
+                openModal={() => setOpenModal(!openModal)}
+              />
+            );
           })
         )}
       </div>
