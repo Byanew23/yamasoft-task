@@ -1,5 +1,5 @@
 .modal-wrapper {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
 
@@ -10,8 +10,55 @@
     background-color: rgba(165, 165, 165, 0.6);
     display: none;
     z-index: 2;
+
+    align-items: center;
+    justify-content: center;
 }
 
 .open {
     display: flex
 }
+
+.modal-body {
+    max-width: 60%;
+    max-height: 80%;
+    background: #1F2933;
+    color: #F9FAFB;
+    padding: 3rem;
+    border-radius: 0.6rem;
+    position: relative
+}
+
+.name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 1rem;
+}
+
+.modal-image {
+    max-width:80%;
+    height:10rem;
+}
+
+.close {
+    position: absolute;
+    font-size: 1.8rem;
+    width: 2rem;
+    height: 2rem;
+    text-align: center;
+    color: #F9FAFB;
+    opacity: 80%;
+    border-radius: 50%;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+}
+
+.sort {
+    height: 1rem;
+    width: 1rem;
+    background-color: #F9FAFB;
+    display: flex;
+    align-items: center;
+}
+
