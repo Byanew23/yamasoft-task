@@ -22,7 +22,12 @@
 .details {
     display: flex;
 }
-.card-image {
+.image {
+    width: 80%;
+    max-height: 7rem;
+    min-height: 7rem;
+}
+.image-placeholder {
     width: 80%;
     max-height: 7rem;
     min-height: 7rem;
@@ -50,7 +55,7 @@
     gap: 3px
 }
 .star {
-    color: rgb(32, 32, 104);
+    color: #1F2933;
     font-size: 1.2rem
 }
 
